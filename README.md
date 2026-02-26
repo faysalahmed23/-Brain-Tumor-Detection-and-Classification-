@@ -21,8 +21,7 @@ if the same/near-same image appears in multiple classes, it drops that whole dup
 
  Output: a new clean folder like `*_CLEAN_NO_LEAK/` + reports in `_reports/`.
 
-> Note: your file name looks like `...ipynb.ipynb`.  
-> Rename it to `remove_exact_and_near_duplicates.ipynb` if you want (recommended).
+
 
 ---
 
