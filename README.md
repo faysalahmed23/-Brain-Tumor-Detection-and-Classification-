@@ -37,6 +37,57 @@ What it does:
   - **TEST**
   - **TEST2 (optional, eval-only)**
 
- Outputs are saved in `OUT_DIR`.
+# Reproducible Brain Tumor MRI Classification, Localization, and Explainable AI Framework
+
+## Overview
+
+This repository provides the research code developed for brain tumor detection, classification, localization, segmentation, and explainable artificial intelligence analysis from magnetic resonance imaging (MRI).
+
+The repository has been made publicly available to support transparency, reproducibility, independent verification, and future research. The code includes dataset-cleaning procedures, leakage-aware data splitting, model development, joint classification–segmentation training, external evaluation, and explainability analysis.
+
+The framework classifies brain MRI images into four categories:
+
+- Glioma
+- Meningioma
+- Pituitary tumor
+- No tumor
+
+This repository is intended for academic and research purposes only. It is not approved for direct clinical diagnosis or treatment decisions.
+
+---
+
+## Repository Contents
+
+
+### `joint_classification_localization_framework.ipynb`
+
+This notebook contains the joint multitask framework for brain tumor classification and tumor-region localization.
+
+It includes:
+
+- One shared multi-backbone encoder
+- Joint classification and segmentation training
+- A U-Net-style segmentation decoder
+- Gated feature fusion
+- A classification head using deep and handcrafted fingerprint features
+- Weighted classification and segmentation losses
+- Selection of one joint checkpoint using a combined validation score
+- Classification evaluation using the four tumor categories
+- Segmentation evaluation using Dice score
+- Confusion matrices, ROC curves, training histories, and segmentation figures
+- A Gradio-based inference interface
+
+The implemented encoder uses the following five backbone architectures:
+
+1. ConvNeXt-Base
+2. EfficientNetV2-S
+3. DenseNet-201
+4. Swin Transformer-Small
+5. Vision Transformer-Base
+
+The classification and segmentation branches are optimized jointly. The total training objective is:
+
+```text
+Total loss = λcls × classification loss + λseg × segmentation loss
 
 
